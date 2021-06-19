@@ -1,0 +1,160 @@
+<!-- #f5ccff -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LMS - Admin</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="resources/css/admin.css">
+
+	<style type="text/css">
+		
+	</style>
+</head>
+
+<body>
+	<!--SIDEBAR-->
+	<div class="sidebar">
+		<img src="resources\images\profile_male.png" alt="Avatar">
+
+		<label style="margin-left: 70px; margin-top: 40px; font-size: 18px; color: white;">Admin</label><br><br>
+			
+		<a href="#new_request">
+			<span class="icon"><i class="fa fa-plus-square" aria-hidden="true"></i></span>
+			<span class="title">NEW REQUESTS</span>
+		</a>
+		<a href="#in_consideration">
+			<span class="icon"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
+			<span class="title">IN CONSIDERATION</span>
+		</a>
+		<a href="#all_requests">
+			<span class="icon"><i class="fa fa-address-book" aria-hidden="true"></i></span>
+			<span class="title">ACCEPTED REQUESTS</span>
+		</a>
+		<a href="signin.html">
+			<span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+			<span class="title">LOGOUT</span>
+		</a>
+	</div>
+
+	<div class="contents">
+		<div class="wrapper">
+
+			<!--NEW REQUEST SECTION-->
+			<div id="new_request" class="new_request-content">
+				<center>
+				<button type="button" onclick="loadXMLDoc1()">LOAD ALL NEW REQUEST</button>
+					<br><br>
+					<table id="demo1"></table>
+
+					<script>
+					function loadXMLDoc1() {
+					  	var xmlhttp = new XMLHttpRequest();
+					  	xmlhttp.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
+							    myFunction1(this);
+						    }
+						};
+						xmlhttp.open("GET", "newapplications.xml", true);
+						xmlhttp.send();
+					}
+					
+					function myFunction1(xml) {
+						var i;
+						var xmlDoc = xml.responseXML;
+						var table="<tr><th>Sr no.</th><th>Applied on</th><th>Start Date</th><th>End Date</th><th>View request</th></tr>";
+						var x = xmlDoc.getElementsByTagName("application");
+						for (i = 0; i <x.length; i++) { 
+						    table += "<tr><td>" +
+						    x[i].getElementsByTagName("srno")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("applied_on")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("start_date")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("end_date")[0].childNodes[0].nodeValue + "</td></tr>";
+						}
+						document.getElementById("demo1").innerHTML = table;
+					}
+				</script>
+				</center>
+			</div>
+			
+			<!--IN CONSIDERATION SECTION-->
+			<div id="in_consideration" class="in_consideration-content">
+				<center>
+				<button type="button" onclick="loadXMLDoc2()">LOAD ALL REQUESTS IN CONSIDERATION</button>
+					<br><br>
+					<table id="demo2"></table>
+
+					<script>
+					function loadXMLDoc2() {
+					  	var xmlhttp = new XMLHttpRequest();
+					  	xmlhttp.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
+							    myFunction2(this);
+						    }
+						};
+						xmlhttp.open("GET", "pending.xml", true);
+						xmlhttp.send();
+					}
+					
+					function myFunction2(xml) {
+						var i;
+						var xmlDoc = xml.responseXML;
+						var table="<tr><th>Sr no.</th><th>Applied on</th><th>Start Date</th><th>End Date</th><th>Status</th></tr>";
+						var x = xmlDoc.getElementsByTagName("application");
+						for (i = 0; i <x.length; i++) { 
+						    table += "<tr><td>" +
+						    x[i].getElementsByTagName("srno")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("applied_on")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("start_date")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("end_date")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("leave_completed")[0].childNodes[0].nodeValue + "</td></tr>";
+						}
+						document.getElementById("demo2").innerHTML = table;
+					}
+				</script>
+				</center>
+			</div>
+			
+			<!--ALL REQUEST SECTION-->
+			<div id="all_requests" class="all_requests-content">
+				<center>
+				<button type="button" onclick="loadXMLDoc3()">LOAD ALL REQUESTS</button>
+					<br><br>
+					<table id="demo3"></table>
+
+					<script>
+					function loadXMLDoc3() {
+					  	var xmlhttp = new XMLHttpRequest();
+					  	xmlhttp.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
+							    myFunction3(this);
+						    }
+						};
+						xmlhttp.open("GET", "pending.xml", true); 
+						xmlhttp.send();
+					}
+					
+					function myFunction3(xml) {
+						var i;
+						var xmlDoc = xml.responseXML;
+						var table="<tr><th>Sr no.</th><th>Applied on</th><th>Start Date</th><th>End Date</th><th>View request</th></tr>";
+						var x = xmlDoc.getElementsByTagName("application");
+						for (i = 0; i <x.length; i++) { 
+						    table += "<tr><td>" +
+						    x[i].getElementsByTagName("srno")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("applied_on")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("start_date")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("end_date")[0].childNodes[0].nodeValue + "</td></tr>";
+						}
+						document.getElementById("demo3").innerHTML = table;
+					}
+				</script>
+				</center>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

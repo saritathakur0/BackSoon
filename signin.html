@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LMS - Sign in</title>
+	
+	<link rel="stylesheet" href="resources\css\signup.css">
+
+	<script type="text/javascript">
+			function validate(){
+				var mailfromat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+				if(document.myform.email.value <= ""){
+					alert("Please enter Email id");
+					email.focus();
+					return false;
+				}
+
+				if(document.myform.password.value <= ""){
+					alert("Please enter Password");
+					password.focus();
+					return false;
+				}
+
+				if(document.myform.email.value.match(mailfromat)){
+				}
+				else{
+					alert("Please enter valid Email id");
+					password.focus();
+					return false;
+				}
+
+				if(document.myform.password.value.length < 8 || document.myform.password.value.length > 15) {  
+				    alert("Password length must be between 8 to 15 characters");
+				    password.focus();
+				    return false;  
+				}
+				alert("Logged in");
+				return true;
+			}
+		</script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h2>WELCOME BACK</h2>
+		</div>
+		<div class="form-control">
+			<form name="myform" onsubmit="return validate()" action="check.jsp" method="post">
+			<label for="email">Email</label>
+			<input type="text" name="email" placeholder="something@gmail.com">
+			<label for="password">Password</label>
+			<input type="password" name="password" placeholder="password"><br>
+			<button type="submit">SUBMIT</button>
+			<center><label>Don't have an account? <a href="signup.html">Sign up</a></label></center>
+		</form>
+		</div>
+	</div>
+</body>
+</html>

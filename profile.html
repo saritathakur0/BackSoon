@@ -1,0 +1,403 @@
+<!-- #f5ccff -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LMS - Employee</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="resources/css/profile.css">
+
+	<style type="text/css">
+		table,th,td {
+		  border : 1px solid black;
+		  border-collapse: collapse;
+		}
+		th,td {
+		  padding: 5px;
+		}
+
+		*{
+			font-family: Georgia;
+		}
+
+		fieldset {
+			border:2px solid black;
+			border-radius: 5px;
+		}
+
+		legend {
+		  	padding: 30px 10px;
+		  	border:5px black;
+		  	font-size:19px;
+		  	text-align:right;
+		  }
+
+		.form-control, .apply-form, .feedback-form{
+			margin-bottom: 10px;
+			padding: 10px 50px;
+		}
+
+		.form-control label, .apply-form label, .feedback-form label{
+			display: inline-block;
+			margin-bottom: 10px;
+			font-size: 17px;
+		}
+
+		.form-control input, textarea{
+			display: block;
+			margin-bottom: 10px;
+			padding: 5px 15px;
+			width: 90%;
+		}
+
+		.apply-form input{
+			width: 30%;
+			padding: 5px 20px;
+			margin-bottom: 20px;
+		}
+
+		.feedback-form input, textarea{
+			padding: 5px 20px;
+			display: inline-block;
+			margin-bottom: 20px;
+		}
+		.select-year select, .select-leave-type{
+			margin-bottom: 10px ;
+			padding: 5px;
+			width: 98%;
+			padding: 5px 15px;
+		}
+
+		.form-control button, .apply-form button, button{
+			color: white;
+			font-size: 15px;
+			background-color: #bf00ff;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			padding: 10px 127px;
+		}
+
+	</style>
+
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script>
+	  $( function() {
+	    $( "#start_date" ).datepicker({
+	    	dateFormat: "dd-mm-yy",
+	    	changeMonth: true,
+	    	changeYear: true,
+	    	maxDate: '6M',
+	    	minDate: '-0D'
+	    });
+	  });
+
+	  $( function() {
+	    $( "#end_date" ).datepicker({
+	    	dateFormat: "dd-mm-yy",
+	    	changeMonth: true,
+	    	changeYear: true,
+	    	maxDate: '6M',
+	    	minDate: '-0D'
+	    });
+	  });
+
+	  $( function() {
+	    $( "#dob" ).datepicker({
+	    	dateFormat: "dd-mm-yy",
+	    	changeMonth: true,
+	    	changeYear: true,
+	    	maxDate: '-22Y',
+	    	minDate: '-70Y'
+	    });
+	  });
+
+	  </script>
+	<script type="text/javascript">
+
+		function validateProfile(){
+
+			if(document.myform.mobile.value == ""){
+				alert("Please enter your mobile number");
+				mobile.focus();
+			}
+
+			if(document.myform.dob.value == ""){
+				alert("Please enter your DOB");
+				dob.focus();
+			}
+
+			if (document.myform.teaching_at.selectedIndex == 0){
+			   alert("Select where you teach at");
+			   teaching_at.focus();
+			}
+
+			if (document.myform.cell.selectedIndex == 0){
+			   alert("Select if you are a part of any cell");
+			   cell.focus();
+			}
+
+			var val = document.myform.mobile.value;
+			if (/^\d{10}$/.test(val)) {} 
+			else {
+			    alert("Invalid mobile number")
+			    mobile.focus()
+			    return false
+			}
+
+			
+		}
+
+		function validateFeedback() {
+		    var radios = document.getElementsByName('gender')
+
+		    for (var i = 0; i < radios.length; i++) {
+		        if (radios[i].checked) {}
+		    	else{
+		    		alert("Please select one of a type");
+		   			return false;
+		    	}
+
+		    	if(document.feedback_form.comment.value <= ""){
+					alert("Please write some comment");
+					comment.focus();
+					return false;
+				}
+
+				alert("Submitted");
+				return true;
+		    };
+
+		    
+		}
+	</script>
+</head>
+
+<body>
+	<div class="sidebar">
+		<img src="resources\images\profile_male.png" alt="Avatar">
+
+		<label style="margin-left: 45px; margin-top: 40px; font-size: 18px; color: white;">EmployeeName</label><br><br>
+			
+				<a href="#profile">
+					<span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+					<span class="title"> MY PROFILE</span>
+				</a>
+				<a href="#apply">
+					<span class="icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+					<span class="title">APPLY FOR LEAVE</span>
+				</a>
+				<a href="#application">
+					<span class="icon"><i class="fa fa-history" aria-hidden="true"></i></span>
+					<span class="title">MY APPLICATIONS</span>
+				</a>
+				<a href="#feedback">
+					<span class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+					<span class="title">FEEDBACK/CONTACT</span>
+				</a>
+				<a href="signin.html">
+					<span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+					<span class="title">LOGOUT</span>
+				</a>
+	</div>
+
+	<div class="contents">
+		<div class="wrapper">
+
+			<!--HOMEPAGE SECTION
+			<div id="home" class="banner">
+				<div class="text-content">
+					<img src="resources\images\bg.png" alt="Avatar" style="width: 100%; height: 100%;">
+				</div>
+			</div>
+			-->
+
+			<!--PROFILE SECTION-->
+			<div id="profile" class="profile-content">
+					<div class="profile_first" style="width: 556px; float:left; height:625px; background-color: #f5ccff;">
+						<form name="myform" onsubmit="return validateProfile()">
+							<div class="form-control">
+								<fieldset>
+									<legend>Personal Details</legend>
+									<label>Name</label>
+									<input type="text" name="name">
+									<label>Mobile</label>
+									<input type="tel" name="mobile">
+									<label for="dob">DOB</label>
+									<input type="text" id="dob" name="dob">
+									<label>Contact Address</label>
+									<textarea id="address" name="address" rows="3" cols="50"></textarea>
+									<label>Email</label>
+									<input type="email" name="email">
+									<label>Change Password ?</label>
+									<input type="password" name="password">
+								</fieldset>
+							</div>
+					</div>
+
+					<div class="profile_second" style="position: relative; float:left; height:625px; background-color: #f5ccff">
+						<div class="form-control">
+								<fieldset>
+									<legend>College Details</legend>
+									<label>EmployeeID</label>
+									<input type="text" name="clgid">
+									<label>Teaching at</label>
+									<div class = "select-year">
+										<select id="teaching_at" name="teaching_at">
+											<option>select</option>
+											<option value="First Year Engineering">First Year Engineering</option>
+											<option value="Computer Science">Computer Science</option>
+											<option value="Information Technology">Information Technology</option>
+											<option value="ELectronic and Telecommunication">ELectronic and Telecommunication</option>
+											<option value="none">none</option>
+										</select>
+									</div>
+									<label>Part of ?</label>
+									<div class = "select-year">
+										<select id="cell" name="cell">
+											<option>select</option>
+											<option value="Industry Institute Partnership Cell">Industry Institute Partnership Cell</option>
+											<option value="IPR Cell">IPR Cell</option>
+											<option value="Startup and Innovation Cell">Startup and Innovation Cell</option>
+											<option value="International Relations">International Relations</option>
+											<option value="Enterpreneurship Development Cell">Enterpreneurship Development Cell</option>
+											<option value="Training and Placement Cell">Training and Placement Cell</option>
+											<option value="none">none</option>
+										</select>
+									</div>
+								</fieldset>
+								<br>
+								<label>Password</label>
+								<input style="width: 420px" type="Password" name="Password" placeholder="password">
+								<button style="width: 100%" type="submit">UPDATE PROFILE</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			
+
+			<div id="apply" class="apply-content">
+				<div class="text-content">
+					<!--The contact information of the employee should be listed for emergencies.-->
+					<div class="apply-form">
+						<fieldset>
+							<legend>Leave Application</legend>
+							<label style="margin-bottom: 0px;"><b>Regulations:</b></label>
+							<ol>
+								<li>
+									The employee should make a leave request one week before this desired leave period. For this reason, the employee should submit this Leave Request Form at least one week before the desired leave period.
+								</li>
+								<li>
+									The leave schedules should be arranged with the employee's supervisor.
+								</li>
+							</ol><br><br>
+							<label for="start_date">Start date</label>
+							<input style="margin-right: 100px; margin-left: 80px; width: 213px" type="text" id="start_date" name="start_date">
+							<label for="end_date">End date</label>
+							<input style="margin-left: 15px; width: 280px" type="text" id="end_date" name="end_date">
+							<label for="days">Total requested days</label>
+							<input style="width: 213px; margin-right: 100px;" type="number" id="days" name="days">
+								<label>Leave type</label>
+								<select class = "select-leave-type" style="width: 325px" id="year">
+										<option value="Sick leave">Sick leave</option>
+										<option value="Casual leave">Casual leave</option>
+										<option value="Religious holiday">Religious holiday</option>
+										<option value="Maternity leave">Maternity leave</option>
+										<option value="Paternity leave">Paternity leave</option>
+										<option value="Bereavement leave">Bereavement leave</option>
+										<option value="Religious holiday">Religious holiday</option>
+										<option value="Compensatory leave">Compensatory leave</option>
+										<option value=">Emergency leave">Emergency leave</ption>
+										<option value="Unpaid Leave">Unpaid Leave</option>
+										<option value="none">Not mentioned</option>
+								</select>
+							<label for="comment">Additional Comment</label>
+							<textarea style="display: inline-block; vertical-align: top; width: 733px; margin-bottom: 20px;" name="comment" rows="4" cols="50"></textarea>
+
+							<label for="document">Attach Document<br>(if any)</label>
+							<input style="vertical-align: top; border:0.2px solid black; border-radius: 0.2px; background-color: white; margin-left: 27px; width: 213px;" type="file" id="document" name="document" multiple>
+
+							<label style="vertical-align: top; margin-left: 30px" for="econtact">Emergency Contact</label>
+							<input style="vertical-align: top; width: 280px" type="tel" id="econtact" name="econtact">
+
+							<center><button style="width: 80%" type="submit">APPLY</button></center>
+							</fieldset>
+					</div>
+				</div>
+			</div>
+			
+			<!--APPLICATION SECTION-->
+			<div id="application" class="application-content">
+				<div class="text-content">
+					<center>
+				<button style="margin-top: 80px" type="button" onclick="loadXMLDoc2()">MY APPLICATIONS</button>
+					<br><br>
+					<table id="demo2"></table>
+
+					<script>
+					function loadXMLDoc2() {
+					  	var xmlhttp = new XMLHttpRequest();
+					  	xmlhttp.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
+							    myFunction2(this);
+						    }
+						};
+						xmlhttp.open("GET", "application.xml", true);
+						xmlhttp.send();
+					}
+					
+					function myFunction2(xml) {
+						var i;
+						var xmlDoc = xml.responseXML;
+						var table="<tr><th>Sr no.</th><th>Applied on</th><th>Start Date</th><th>End Date</th><th>Status</th><th>View form</th></tr>";
+						var x = xmlDoc.getElementsByTagName("application");
+						for (i = 0; i <x.length; i++) { 
+						    table += "<tr><td>" +
+						    x[i].getElementsByTagName("srno")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("applied_on")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("start_date")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("end_date")[0].childNodes[0].nodeValue + "</td><td>" +
+						    x[i].getElementsByTagName("leave_completed")[0].childNodes[0].nodeValue + "</td></tr>";
+						}
+						document.getElementById("demo2").innerHTML = table;
+					}
+				</script>
+				</center>
+				</div>
+			</div>
+			
+			<!--FEEDBACK SECTION-->
+			<div id="feedback" class="feedback-content">
+				<div class="text-content">
+					<div class="feedback_first" style="width: 556px; float:left; height:625px; background-color: #f5ccff;">
+						<form name="feedback_form" onsubmit="return validateFeedback()">
+							<div class="feedback-form">
+								<fieldset style="margin-top: 50px">
+									<legend>Ping us</legend>
+									<label style="margin-right: 100px">Type:</label>
+									<input class="radio" type="radio" id="Feedback" name="gender" value="Feedback">
+									<label style="margin-right: 50px">Feedback</label>
+									<input class="radio" type="radio" id="Suggestion" name="gender" value="Suggestion">
+									<label>Suggestion</label><br>
+									<label>Your Comment</label>
+									<center><textarea style="width: 85%" id="comment" name="comment" rows="15" cols="40"></textarea></center>
+									<center><button style="width: 80%" type="submit">SUBMIT</button></center>
+								</fieldset>
+							</div>
+						</form>
+					</div>
+
+					<div class="feedback_second" style="width: 550px; float:right; height:625px; background-color: #f5ccff;">
+						<img src="resources\images\feedback.jpg" alt="Avatar" style="width: 80%; height: 60%; margin-left: 10%; margin-top: 23%;">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
