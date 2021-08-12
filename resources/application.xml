@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<applications>
+	<application>
+		<srno>1</srno>
+		<applied_on>02/04/2020</applied_on>
+		<start_date>13/04/2020</start_date>
+		<end_date>17/04/2020</end_date>
+		<st>Approved</st>
+		<leave_completed>Yes</leave_completed>
+	</application>
+	<application>
+		<srno>2</srno>
+		<applied_on>10/05/2020</applied_on>
+		<start_date>20/05/2020</start_date>
+		<end_date>25/05/2020</end_date>
+		<st>Pending</st>
+		<leave_completed>No</leave_completed>
+	</application>
+	<application>
+		<srno>3</srno>
+		<applied_on>13/06/2020</applied_on>
+		<start_date>23/06/2020</start_date>
+		<end_date>27/06/2020</end_date>
+		<st>Denied</st>
+		<leave_completed>Yes</leave_completed>
+	</application>
+	<application>
+		<srno>4</srno>
+		<applied_on>07/06/2020</applied_on>
+		<start_date>07/07/2020</start_date>
+		<end_date>15/07/2020</end_date>
+		<st>Approved</st>
+		<leave_completed>No</leave_completed>
+	</application>
+	<application>
+		<srno>5</srno>
+		<applied_on>02/05/2020</applied_on>
+		<start_date>13/05/2020</start_date>
+		<end_date>17/05/2020</end_date>
+		<st>Approved</st>
+		<leave_completed>Yes</leave_completed>
+	</application>
+	<application>
+		<srno>6</srno>
+		<applied_on>10/08/2020</applied_on>
+		<start_date>20/08/2020</start_date>
+		<end_date>25/08/2020</end_date>
+		<st>Pending</st>
+		<leave_completed>No</leave_completed>
+	</application>
+	<application>
+		<srno>7</srno>
+		<applied_on>13/10/2020</applied_on>
+		<start_date>23/10/2020</start_date>
+		<end_date>27/10/2020</end_date>
+		<st>Denied</st>
+		<leave_completed>Yes</leave_completed>
+	</application>
+	<application>
+		<srno>8</srno>
+		<applied_on>07/10/2020</applied_on>
+		<start_date>07/11/2020</start_date>
+		<end_date>15/11/2020</end_date>
+		<st>Approved</st>
+		<leave_completed>No</leave_completed>
+	</application>
+</applications>
+
+<!--
+	<script>
+		function loadXMLDoc() {
+		  var xmlhttp = new XMLHttpRequest();
+		  xmlhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		      myFunction(this);
+		    }
+		  };
+		  xmlhttp.open("GET", "application.xml", true);
+		  xmlhttp.send();
+		}
+		function myFunction(xml) {
+		  var i;
+		  var xmlDoc = xml.responseXML;
+		  var table="<tr><th>Sr no.</th><th>Start Date</th><th>End Date</th><th>Status</th><th>Completed</th></tr>";
+		  var x = xmlDoc.getElementsByTagName("applications");
+		  for (i = 0; i <x.length; i++) { 
+		    table += "<tr><td>" +
+		    x[i].getElementsByTagName("application")[0].childNodes[0].nodeValue +
+		    "</td><td>" +
+		    x[i].getElementsByTagName("start_date")[0].childNodes[0].nodeValue +
+		    "</td><td>" + 
+		    x[i].getElementsByTagName("end_date")[0].childNodes[0].nodeValue +
+		    "</td><td>" +
+		    x[i].getElementsByTagName("status")[0].childNodes[0].nodeValue +
+		    "</td><td>" +
+		    x[i].getElementsByTagName("leave_completed")[0].childNodes[0].nodeValue +
+		    "</td><td>"
+		  }
+		  document.getElementById("demo").innerHTML = table;
+		}
+	</script>
+-->
+
+
+
+
+<!--
+	
+
+	<div class="third" style="width: 556px; float:left; height:610px; background-color:  #f5ccff">
+		<div class="form-control">
+			<fieldset>
+				<legend>College Details</legend>
+				<label>EmployeeID</label>
+			<input type="text" name="clgid" required>
+			<label>Teaching at</label>
+			<div class = "select-year">
+				<select id="year">
+						<option value="1st">First Year Engineering</option>
+						<option value="Computer Science">Computer Science</option>
+						<option value="Information Technology">Information Technology</option>
+						<option value="ELectronic and Telecommunication">ELectronic and Telecommunication</option>
+						<option value="none">none</option>
+				</select>
+			</div>
+			<label>Part of ?</label>
+			<div class = "select-year">
+				<select id="dept">
+						<option value="Industry Institute Partnership Cell">Industry Institute Partnership Cell</option>
+						<option value="IPR Cell">IPR Cell</option>
+						<option value="Startup and Innovation Cell">Startup and Innovation Cell</option>
+						<option value="International Relations">International Relations</option>
+						<option value="Enterpreneurship Development Cell">Enterpreneurship Development Cell</option>
+						<option value="Training and Placement Cell">Training and Placement Cell</option>
+						<option value="none">none</option>
+						
+				</select>
+			</div>
+			</fieldset>
+			<br>
+			<label>Password</label>
+			<input style="width: 420px" type="Password" name="Password" placeholder="password" required>
+			<button style="width: 100%" type="submit">UPDATE PROFILE</button>
+		</div>
+	</div>
+	</div>
+<!--
+	height was 350px
+	<div class="fourth" style="width: 300px; float:left; height:245px; background-color:blue; bottom: 10px; margin:5px">
+		<div class="form-control">
+			<label>Password</label>
+			<input style="width: 180px; display: flex;" type="Password" name="Password" placeholder="password" required>
+		</div>
+	</div>
+
+	<div class="fifth" style="width: 250px; float:right; height:245px; background-color:black; top: 10px; margin:5px">
+		<button style="width: 70%;" type="submit">UPDATE PROFILE</button>
+	</div>
+!-->

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<applications>
+	<application>
+		<srno>1</srno>
+		<applied_on>02/03/2021</applied_on>
+		<start_date>13/03/2021</start_date>
+		<end_date>17/03/2021</end_date>
+	</application>
+	<application>
+		<srno>2</srno>
+		<applied_on>10/03/2021</applied_on>
+		<start_date>20/04/2021</start_date>
+		<end_date>25/04/2021</end_date>
+	</application>
+	<application>
+		<srno>3</srno>
+		<applied_on>13/03/2021</applied_on>
+		<start_date>23/04/2021</start_date>
+		<end_date>27/04/2021</end_date>
+	</application>
+	<application>
+		<srno>4</srno>
+		<applied_on>07/03/2021</applied_on>
+		<start_date>07/03/2021</start_date>
+		<end_date>15/03/2021</end_date>
+	</application>
+	
