@@ -1,0 +1,66 @@
+*{
+	font-family: Georgia;
+}
+
+.sidebar{
+	width: 240px;
+	float:left;
+	height:100%;
+	background-color:#bf00ff;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+}
+
+.sidebar img{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+  	margin-left: 28px;
+	margin-top: 50px;
+}
+
+
+.sidebar a{
+	font-size: 18px;
+	padding: 20px 10px 10px 20px;
+	display: block;
+	color: white;
+	text-decoration: none;
+}
+
+.sidebar a:hover{
+	color: black;
+	text-decoration: underline;
+}
+
+.wrapper{
+	width: 100%;
+	margin: 0 auto;
+	background-color: #f5ccff;
+}
+
+.banner{
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.content, .profile-content, .apply-content, .application-content, .feedback-content, 
+.new_request-content, .in_consideration-content, .all_requests-content{
+	height: 100vh;
+	background-color: #f5ccff;
+}
+
+.contents{
+	margin-left: 230px;
+	width: 1111px;
+	float:left;
+}

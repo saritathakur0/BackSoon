@@ -1,0 +1,56 @@
+		*{
+			font-family: Georgia;
+		}
+
+		body{
+			background-color: #bf00ff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			margin: 0;
+		}
+
+		.container{
+			background-color: white;
+			border-radius: 10px;
+			box-shadow: 0 2px 5px;
+			width: 400px;
+		}
+
+		.header{
+			padding: 10px 75px;
+		}
+
+		.form-control{
+			margin-bottom: 10px;
+			padding: 10px 50px;
+		}
+
+		.form-control label{
+			display: inline-block;
+			margin-bottom: 10px;
+			font-size: 17px;
+		}
+
+		.form-control input{
+			display: block;
+			margin-bottom: 10px;
+			padding: 5px;
+			width: 100%;
+		}
+
+		.select-identity select{
+			margin-bottom: 10px ;
+			padding: 5px;
+			width: 313px;
+		}
+
+		.form-control button{
+			color: white;
+			font-size: 15px;
+			background-color: #bf00ff;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			padding: 10px 127px;
+		}
